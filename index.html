@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kak Ema Punya - Watch TV Shows Online, Watch Movies Online</title>
+
+    <!-- Font & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Cinzel:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- ===================== -->
+    <!-- LOADER SCREEN -->
+    <!-- ===================== -->
+    <div id="loader">
+        <div class="loader-circle"></div>
+        <h2>Preparing Kak Ema Punya Experience...</h2>
+        <div class="loader-line">
+            <span id="loadingBar"></span>
+        </div>
+    </div>
+
+    <!-- Background Ambient Particles -->
+    <div id="particles"></div>
+    <div class="gradient1"></div>
+    <div class="gradient2"></div>
+    <div class="gradient3"></div>
+
+    <!-- =====================================================
+         1. PROFILE SELECTION SCREEN ("Who's Watching?")
+         ===================================================== -->
+    <div id="profileStage" class="profile-container">
+        <h1>Who's watching?</h1>
+        <div class="profile-gate-container">
+            <div class="profile-card" data-profile="user">
+                <div class="avatar gold-avatar">
+                    <i class="fa-solid fa-user-astronaut"></i>
+                </div>
+                <span class="profile-name">For You</span>
+            </div>
+            <div class="profile-card" data-profile="guest">
+                <div class="avatar grey-avatar">
+                    <i class="fa-solid fa-user-secret"></i>
+                </div>
+                <span class="profile-name">Guest</span>
+            </div>
+        </div>
+        <button class="manage-profiles">Manage Profiles</button>
+    </div>
+
+    <!-- =====================================================
+         2. BROWSE HOMEPAGE SCREEN (Kak Ema Punya Core)
+         ===================================================== -->
+    <div id="browseStage" class="browse-container stage-hidden">
+        <!-- Kak Ema Punya Navigation Header -->
+        <header class="Kak Ema Punya-header">
+            <div class="header-left">
+                <div class="logo">Kak Ema Punya</div>
+                <nav class="navigation-menu">
+                    <span class="nav-item active">Home</span>
+                    <span class="nav-item">Series</span>
+                    <span class="nav-item">Movies</span>
+                    <span class="nav-item">New & Popular</span>
+                    <span class="nav-item">My List</span>
+                </nav>
+            </div>
+            <div class="header-right">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <span class="kids-badge">KIDS</span>
+                <i class="fa-solid fa-bell notification-bell"></i>
+                <div class="profile-dropdown">
+                    <div class="avatar-sm">
+                        <i class="fa-solid fa-user-astronaut"></i>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Billboard Hero Section -->
+        <section class="hero billboard-hero">
+            <div class="billboard-backdrop-overlay"></div>
+            <div class="billboard-content">
+                <span class="billboard-label">
+                    <i class="fa-solid fa-film"></i> SPECIAL PREMIERE
+                </span>
+                <h1 class="billboard-title">Preview</h1>
+                <h2 class="billboard-subtitle">web kak emaa</h2>
+                <p class="billboard-synopsis">
+                    Sebuah film pendek istimewa yang dipilih dan disiapkan secara khusus untuk menceritakan pesan yang
+                    personal. Klik putar untuk masuk ke bioskop pribadi.
+                </p>
+                <div class="button-group billboard-actions">
+                    <button id="watchBtn" class="play-btn">
+                        <i class="fa-solid fa-play"></i> Play
+                    </button>
+                    <button id="infoBtn" class="info-btn">
+                        <i class="fa-solid fa-circle-info"></i> More Info
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Movie Catalog Category Rows -->
+        <div class="catalog-rows">
+            <div class="row">
+                <h3 class="row-title">Trending Now</h3>
+                <div class="row-posters" id="trendingRow"></div>
+            </div>
+            <div class="row">
+                <h3 class="row-title">Critically Acclaimed Movies</h3>
+                <div class="row-posters" id="acclaimedRow"></div>
+            </div>
+        </div>
+
+        <!-- Minimal Footer -->
+        <footer>
+            <span>Kak Ema Punya Indonesia • Made with itu sudah</span>
+        </footer>
+    </div>
+
+    <!-- =====================================================
+         3. VIDEO MODAL (Kak Ema Punya Theater Player)
+         ===================================================== -->
+    <div class="video-modal stage-hidden" id="videoModal">
+        <div class="video-container">
+            <button id="closeVideo" class="back-to-browse">
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <iframe id="videoFrame" src="" allow="autoplay" allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+    <!-- =====================================================
+         4. THANK YOU SCREEN (Kak Ema Punya Next Recommendation Details)
+         ===================================================== -->
+    <div class="thanks-modal stage-hidden" id="thanksModal">
+        <div class="thanks-card Kak Ema Punya-thanks-card">
+            <i class="fa-solid fa-heart heart-icon"></i>
+            <h2>Terima Kasih</h2>
+            <p>
+                Terima kasih sudah meluangkan waktu untuk menonton video ini. Semoga video spesial ini bisa membuat
+                harimu menjadi lebih menyenangkan.
+            </p>
+            <div class="action-buttons">
+                <button id="closeThanks" class="replay-btn">
+                    <i class="fa-solid fa-rotate-right"></i> Tonton Lagi
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================
+         5. MORE INFO MODAL (Kak Ema Punya Detail Panel)
+         ===================================================== -->
+    <div class="info-modal stage-hidden" id="infoModal">
+        <div class="info-modal-backdrop" id="closeInfoBackdrop"></div>
+        <div class="info-modal-panel">
+            <!-- Hero image area -->
+            <div class="info-hero">
+                <div class="info-hero-bg"></div>
+                <div class="info-hero-gradient"></div>
+                <div class="info-hero-content">
+                    <h2 class="info-title">Preview Web<br><span></span></h2>
+                    <div class="info-action-row">
+                        <button id="infoPlayBtn" class="play-btn">
+                            <i class="fa-solid fa-play"></i> Play
+                        </button>
+                        <button class="icon-action-btn" title="Tambah ke Daftar">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <button class="icon-action-btn" title="Suka">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                        </button>
+                        <button class="icon-action-btn info-close-x" id="closeInfoBtn" title="Tutup">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Details body -->
+            <div class="info-body">
+                <div class="info-meta-left">
+                    <div class="info-badges">
+                        <span class="badge-match">98% Match</span>
+                        <span class="badge-year">2024</span>
+                        <span class="badge-rating">13+</span>
+                        <span class="badge-hd">HD</span>
+                    </div>
+                    <p class="info-desc">
+                        Sebuah film pendek istimewa yang dipilih dan disiapkan secara khusus. Dibuat dengan sepenuh hati
+                        untuk menyampaikan pesan yang personal, hangat, dan tak terlupakan. Siapkan dirimu untuk momen
+                        sinematik yang berbeda dari yang lain.
+                    </p>
+                </div>
+                <div class="info-meta-right">
+                    <p><span class="meta-label">Pemeran:</span> Spesial, Untuk, Kamu</p>
+                    <p><span class="meta-label">Genre:</span> Personal, Sinematik, Drama</p>
+                    <p><span class="meta-label">Fitur ini:</span> <span class="meta-tag">Penuh Perasaan</span></p>
+                </div>
+            </div>
+
+            <!-- More Like This -->
+            <div class="info-more-like">
+                <h3>More Like This</h3>
+                <div class="more-like-grid" id="moreLikeGrid"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
