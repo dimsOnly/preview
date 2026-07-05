@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const trendingRow     = document.getElementById("trendingRow");
     const acclaimedRow    = document.getElementById("acclaimedRow");
 
-    const VIDEO_URL = "https://drive.google.com/file/d/1axDyJvDNIseDmYSyBmZjDobj4MGv1MYC/preview";
+    const VIDEO_URL = "https://drive.google.com/file/d/1efkKvWUjDg0VT2aq6CbYEcNDgC5LSh0E/preview";
 
     const infoModal         = document.getElementById("infoModal");
     const closeInfoBtn      = document.getElementById("closeInfoBtn");
